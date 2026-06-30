@@ -15,7 +15,9 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 import authRoute from "./routes/auth.route.js";
+import campaignRoute from "./routes/Campaign.route.js";
 
 app.use("/api/auth", authRoute);
+app.use("/api/campaign", campaignRoute);
 
 export default app;
