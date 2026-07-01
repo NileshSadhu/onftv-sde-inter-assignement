@@ -7,6 +7,11 @@ import Landing from "./pages/Landing";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/Notfound";
+
+// campaign
+import EditCampaign from "./pages/campaign/EditCampaign";
+import CreateCampaign from "./pages/campaign/CreateCampaign";
 
 function App() {
   return (
@@ -21,10 +26,29 @@ function App() {
           }
         />
 
+        <Route
+          path="/campaigns/create"
+          element={
+            <ProtectedRoute>
+              <CreateCampaign />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/campaigns/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditCampaign />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Public Route */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Landing />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
