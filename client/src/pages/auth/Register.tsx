@@ -5,8 +5,8 @@ import axios from "axios";
 import CustomInput from "../../components/CustomInput";
 import CustomBtn from "../../components/Custombutton";
 
-import api from "../../api/axios";
 import toast from "react-hot-toast";
+import api from "../../api/api";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const Register = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("username", response.data.user.username);
       toast.success("Account created successfully");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.log("Failed register API : ", error);
       let message: string | undefined;
@@ -51,6 +51,9 @@ const Register = () => {
       }
 
       toast.error(message ?? "Registration failed. Please try again.");
+      setUsername("");
+      setEmail("");
+      setPassword("");
     } finally {
       setLoading(false);
     }

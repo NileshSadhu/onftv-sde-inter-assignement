@@ -5,8 +5,8 @@ import CustomBtn from "../../components/Custombutton";
 import CustomInput from "../../components/CustomInput";
 
 import toast from "react-hot-toast";
-import api from "../../api/axios";
 import axios from "axios";
+import api from "../../api/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Login = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("username", response.data.user.username);
       toast.success("Logged in successfully");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error: any) {
       console.log("Failed login API : ", error);
       let message: string | undefined;
@@ -47,6 +47,8 @@ const Login = () => {
       }
 
       toast.error(message ?? "Login failed. Please try again.");
+      setEmail("");
+      setPassword("");
     } finally {
       setLoading(false);
     }
