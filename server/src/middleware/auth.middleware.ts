@@ -24,7 +24,9 @@ const checkUser = asyncHandler(
       throw new ApiError(HTTP_STATUS.UNAUTHORIZED, "Invalid token payload");
     }
 
-    req.user.id = decoded.id;
+    req.user = {
+      id: decoded.id,
+    };
 
     next();
   },
