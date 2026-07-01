@@ -1,14 +1,20 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY! as string,
-});
-
 export const generateEmail = async (
   objective: string,
   audience: string,
   cta: string,
 ) => {
+  const apiKey = process.env.GEMINI_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not configured.");
+  }
+
+  const ai = new GoogleGenAI({
+    apiKey: apiKey,
+  });
+
   const prompt = `
     You are an expert email marketing copywriter.
     Generate a professional marketing email based on the following details.
@@ -28,7 +34,7 @@ export const generateEmail = async (
     "subjectLine": "...",
     "previewText": "...",
     "emailContent": "...",
-    "ctaSuggestion": "..."
+    "ctaText": "..."
     }
 
     Do not include markdown, code fences, explanations, or any extra text.
