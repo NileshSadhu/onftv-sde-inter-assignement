@@ -14,3 +14,10 @@ export const ACTION_TYPE = {
 } as const;
 
 export type ActionType = (typeof ACTION_TYPE)[keyof typeof ACTION_TYPE];
+
+export const CONDITION_TYPE = {
+  EMAIL_OPENED: "EMAIL_OPENED",
+} as const;
+
+export type ConditionType =
+  (typeof CONDITION_TYPE)[keyof typeof CONDITION_TYPE];
