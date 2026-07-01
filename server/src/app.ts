@@ -14,12 +14,8 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-import authRoute from "./routes/auth.route.js";
-import campaignRoute from "./routes/Campaign.route.js";
-import aiRoute from "./routes/ai.route.js";
+import mainRoute from "./routes/index.route.js";
 
-app.use("/api/auth", authRoute);
-app.use("/api/campaign", campaignRoute);
-app.use("/api/ai", aiRoute);
+app.use("/api", mainRoute);
 
 export default app;
