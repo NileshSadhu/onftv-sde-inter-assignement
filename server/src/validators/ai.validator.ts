@@ -19,5 +19,5 @@ export const validateGeminiResponse = z.object({
 
   emailContent: z.string().min(1),
 
-  ctaSuggestion: z.string().min(1),
+  ctaText: z.string().min(1),
 });

@@ -6,7 +6,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(errorHandler);
 
 app.get("/", (req: Request, res: Response) => {
   return res.status(200).json({
@@ -17,5 +16,7 @@ app.get("/", (req: Request, res: Response) => {
 import mainRoute from "./routes/index.route.js";
 
 app.use("/api", mainRoute);
+
+app.use(errorHandler);
 
 export default app;
