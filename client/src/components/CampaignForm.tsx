@@ -42,7 +42,9 @@ const CampaignForm = ({
   submitLabel = "Save Campaign",
 }: CampaignFormProps) => {
   const [values, setValues] = useState<CampaignFormValues>(initialValues);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(
+    {} as Partial<Record<keyof CampaignFormValues, string>>,
+  );
   const [isGenerating, setIsGenerating] = useState(false);
   const [aiError, setAiError] = useState<string | null>(null);
 

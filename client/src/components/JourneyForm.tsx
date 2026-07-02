@@ -53,7 +53,9 @@ const JourneyForm = ({
   submitLabel = "Save Journey",
 }: JourneyFormProps) => {
   const [values, setValues] = useState<JourneyFormValues>(initialValues);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(
+    {} as Partial<Record<keyof JourneyFormValues, string>>,
+  );
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [campaignsLoading, setCampaignsLoading] = useState(true);
   const [campaignsError, setCampaignsError] = useState<string | null>(null);
