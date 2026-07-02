@@ -12,6 +12,11 @@ import NotFound from "./pages/Notfound";
 // campaign
 import EditCampaign from "./pages/campaign/EditCampaign";
 import CreateCampaign from "./pages/campaign/CreateCampaign";
+import Journeys from "./pages/journey/Journeys";
+import CreateJourney from "./pages/journey/CreateJourney";
+import EditJourney from "./pages/journey/EditJourney";
+
+// journey
 
 function App() {
   return (
@@ -40,6 +45,33 @@ function App() {
           element={
             <ProtectedRoute>
               <EditCampaign />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/journeys"
+          element={
+            <ProtectedRoute>
+              <Journeys />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/journeys/create"
+          element={
+            <ProtectedRoute>
+              <CreateJourney />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/journeys/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditJourney />
             </ProtectedRoute>
           }
         />
