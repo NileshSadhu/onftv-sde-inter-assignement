@@ -1,75 +1,235 @@
-# React + TypeScript + Vite
+# AI-Powered Email Campaign Management Platform (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive frontend built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS** for managing email campaigns, generating AI-powered email content, and building simple marketing journeys.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Axios
+- React hot toast
+- Zod
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Authentication
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- User Registration
+- User Login
+- JWT-based Authentication
+- Protected Routes
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Dashboard
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Campaign Overview
+- Search Campaigns
+- Quick Navigation
+- Responsive Layout
 
+---
+
+### Campaign Management
+
+- Create Campaign
+- View Campaigns
+- Edit Campaign
+- Delete Campaign
+
+Each campaign contains:
+
+- Campaign Name
+- Objective
+- Subject Line
+- Preview Text
+- Email Content
+- CTA Text
+- CTA URL
+- Audience
+- Status
+
+---
+
+### AI Email Generator
+
+Generate marketing email content by providing:
+
+- Campaign Objective
+- Target Audience
+- CTA
+
+The generated content includes:
+
+- Subject Line
+- Preview Text
+- Email Content
+- CTA Suggestion
+
+---
+
+### Journey Builder
+
+Create simple marketing journeys using:
+
+**Triggers**
+
+- User Registered
+- Subscription Purchased
+- Webinar Registered
+- Video Completed
+
+**Actions**
+
+- Send Email
+- Wait
+
+Supports complete CRUD functionality.
+
+---
+
+## Project Structure
+
+```text
+Directory structure:
+└── src/
+    ├── api/
+    │   ├── ai.api.ts
+    │   ├── api.ts
+    │   ├── apiClient.ts
+    │   ├── apiConfig.ts
+    │   ├── campaign.api.ts
+    │   └── journey.api.ts
+    ├── App.css
+    ├── App.tsx
+    ├── assets/
+    │   ├── hero.png
+    │   ├── react.svg
+    │   └── vite.svg
+    ├── components/
+    │   ├── CampaignForm.tsx
+    │   ├── Custombutton.tsx
+    │   ├── CustomInput.tsx
+    │   ├── JourneyForm.tsx
+    │   └── ProtectedRoute.tsx
+    ├── index.css
+    ├── main.tsx
+    ├── pages/
+    │   ├── auth/
+    │   │   ├── Login.tsx
+    │   │   └── Register.tsx
+    │   ├── campaign/
+    │   │   ├── CreateCampaign.tsx
+    │   │   └── EditCampaign.tsx
+    │   ├── Dashboard.tsx
+    │   ├── journey/
+    │   │   ├── CreateJourney.tsx
+    │   │   ├── EditJourney.tsx
+    │   │   └── Journeys.tsx
+    │   ├── Landing.tsx
+    │   └── Notfound.tsx
+    └── types/
+        ├── campaign.ts
+        └── journey.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment Variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file in the project root.
 
+```env
+VITE_SERVER_URL=http://localhost:8000/api
 ```
+
+Update the URL if your backend is running on a different port.
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Navigate to the frontend directory
+
+```bash
+cd client
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Build the project
+
+```bash
+npm run build
+```
+
+Preview the production build
+
+```bash
+npm run preview
+```
+
+---
+
+## Application Flow
+
+```text
+Login / Register
+        │
+        ▼
+   Dashboard
+        │
+        ├───────────────┐
+        ▼               ▼
+ Campaigns        Journey Builder
+        │
+        ▼
+AI Email Generator
+```
+
+---
+
+## API Communication
+
+The frontend communicates with the Express backend using **Axios**.
+
+Authentication is handled using JWT tokens stored in local storage. An Axios request interceptor automatically attaches the access token to authenticated API requests.
+
+---
+
+## Future Improvements
+
+- Global state management (Redux Toolkit or Context API)
+- Skeleton loading components
+- Dark mode
+- Pagination and server-side search
+- Better form validation UX
+- Unit and integration testing
+- Drag-and-drop Journey Builder
+
+---
+
+## Author
+
+**Nilesh Sadhu**
