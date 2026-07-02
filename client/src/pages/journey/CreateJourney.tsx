@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { JourneyAction, JourneyTrigger } from "../../types/journey";
 import { createJourneyApi } from "../../api/journey.api";
-import CustomBtn from "../../components/Custombutton";
 import JourneyForm from "../../components/JourneyForm";
 
 const CreateJourney = () => {

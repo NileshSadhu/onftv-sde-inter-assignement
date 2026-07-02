@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import type { JourneyFormValues } from "../../components/JourneyForm";
 import { fetchJourneyById, updateJourneyApi } from "../../api/journey.api";
 import type { JourneyAction, JourneyTrigger } from "../../types/journey";
-import CustomBtn from "../../components/Custombutton";
 import JourneyForm from "../../components/JourneyForm";
 
 const extractCampaignId = (value: unknown): string => {
