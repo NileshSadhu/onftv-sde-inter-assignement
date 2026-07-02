@@ -72,23 +72,18 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
-      <header className="border-b bg-white">
+      <header className="bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <h1 className="text-2xl font-bold text-[#0F2A4A]">
-            Campaign Dashboard
-          </h1>
-
-          <div className="flex items-center gap-6">
-            <button
-              onClick={() => navigate("/journeys")}
-              className="text-sm font-medium text-gray-600 hover:text-[#0F2A4A]"
-            >
-              Journeys
-            </button>
-
+          <div>
+            <h1 className="text-2xl font-bold text-[#0F2A4A]">
+              👋 Welcome, {username}
+            </h1>
             <div className="text-sm font-medium text-gray-600">
-              Welcome, {username} 👋
+              Campaign Dashboard
             </div>
+          </div>
+          <div className="flex items-center gap-6">
+            <CustomBtn onClick={() => navigate("/journeys")} text="Journeys" />
           </div>
         </div>
       </header>
@@ -96,7 +91,7 @@ const Dashboard = () => {
       <main className="mx-auto max-w-7xl px-6 py-8">
         {/* Top Section */}
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="w-full md:w-96">
+          <div className="w-full">
             <CustomInput
               placeholder="Search campaigns..."
               value={search}
@@ -106,7 +101,7 @@ const Dashboard = () => {
 
           <div className="w-full md:w-52">
             <CustomBtn
-              text="+ Create Campaign"
+              text="Create Campaign"
               onClick={() => navigate("/campaigns/create")}
             />
           </div>
@@ -183,7 +178,7 @@ const Dashboard = () => {
                         </button>
                         <button
                           onClick={() => setConfirmingId(null)}
-                          className="rounded-lg border px-4 py-2 text-sm hover:bg-gray-100"
+                          className="rounded-lg bg-gray-200 px-4 py-2 text-sm hover:bg-gray-100"
                         >
                           Cancel
                         </button>
@@ -194,7 +189,7 @@ const Dashboard = () => {
                           onClick={() =>
                             navigate(`/campaigns/${campaign._id}/edit`)
                           }
-                          className="rounded-lg border px-4 py-2 text-sm hover:bg-gray-100"
+                          className="rounded-lg bg-gray-200 px-4 py-2 text-sm hover:bg-gray-100"
                         >
                           Edit
                         </button>

@@ -32,17 +32,18 @@ const CreateJourney = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 px-4 py-10 sm:px-6">
+    <div className="min-h-screen bg-white px-4 py-10 sm:px-6">
       <div className="mx-auto w-full max-w-2xl">
         <div className="mb-4 w-32">
-          <CustomBtn
-            text="← Back"
-            variant="outline"
+          <button
             onClick={() => navigate(-1)}
-          />
+            className="bg-[#0F2A4A] px-5 py-3 rounded-xl text-white"
+          >
+            Back
+          </button>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow sm:p-8">
+        <div className="rounded-xl p-6 sm:p-8">
           <h1 className="mb-6 text-xl font-bold text-[#0F2A4A] sm:text-2xl">
             Create Journey
           </h1>

@@ -224,8 +224,8 @@ const CampaignForm = ({
       </div>
 
       <div className="rounded-lg border border-dashed border-[#0F2A4A]/40 bg-[#0F2A4A]/5 p-4">
-        <div className="mb-3 flex items-center justify-between">
-          <p className="text-sm font-medium text-[#0F2A4A]">
+        <div className="mb-3 items-center">
+          <p className="text-sm font-medium mb-4 text-[#0F2A4A]">
             Email content (fill manually or generate with AI)
           </p>
           <CustomBtn
